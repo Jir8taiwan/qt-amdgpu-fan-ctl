@@ -34,7 +34,9 @@ Allow SUDO with NOPASSWD:ALL for sudoers
 GNU GPLv3
 
 
-###
+.
+..
+...
 ### Jir8taiwan maintain of related information
 ** 2022.09.09 added and modified graphics style by Jir8taiwan from the original author version.
 I change the color with confortible background to show off, and to be fixing Y axis of scale to be able to adjust during 100% fan speed.
