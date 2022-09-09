@@ -51,7 +51,9 @@ def InitPlotWidget(plotwidget, **kwds):
             'left': False
         },
 
-        'background' : None
+        #'background' : None
+        ### modified by Jir8taiwan:
+        'background' : (210, 240, 210)
     }
 
     data = dict(kwds_default, **kwds)
@@ -61,6 +63,8 @@ def InitPlotWidget(plotwidget, **kwds):
     plotwidget.setAspectLocked(data['aspectLocked'])
     plotwidget.showGrid(**data['showGrid'])
     plotwidget.setBackground(data['background'])
+    ### added by Jir8taiwan:
+    plotwidget.setYRange(0, 120, padding=0)
 
     if (data['tickSpacing']['bottom'] is not False):
         plotwidget.getAxis('bottom').setTickSpacing(data['tickSpacing']['bottom'][0], data['tickSpacing']['bottom'][1])
@@ -74,14 +78,17 @@ def InitPlotWidget(plotwidget, **kwds):
     if 'limits' in data:
         if len(data['limits']) == 2:
             plotwidget.setLimits(
+                ### modified Y related by Jir8taiwan:
                 xMin = data['limits'][0],
                 yMin = data['limits'][0],
                 xMax = data['limits'][1] + data['limits'][0],
-                yMax = data['limits'][1] + data['limits'][0],
+                #yMax = data['limits'][1] + data['limits'][0],
+                yMax = 120,
                 minXRange = data['limits'][1],
                 maxXRange = data['limits'][1],
                 minYRange = data['limits'][1],
-                maxYRange = data['limits'][1]
+                #maxYRange = data['limits'][1]
+                maxYRange = 120
             )
 
 class EditableGraph(pg.GraphItem):
